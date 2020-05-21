@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import Faker from 'faker'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { 
+
+
+    state = { 
       users: [] ,
     }
-  }
 
 
   componentDidMount() {
@@ -45,7 +44,9 @@ class App extends Component {
   }
 
   render() {
-    return <div>{this.state.users.map(user => this.getUsers(user))}</div>
+    return( 
+    <div>{this.state.users.map(user => this.getUsers(user))}</div>
+    )
   }
 }
 
