@@ -15,7 +15,8 @@ class App extends Component {
       const user = {
         name: Faker.name.firstName(),
         email: Faker.internet.email(),
-        avatar: "https://picsum.photos/100/100?random=" + Math.floor(Math.random() * 100),
+        // avatar: "https://picsum.photos/100/100?random=" + Math.floor(Math.random() * 100),
+        avatar: Faker.internet.avatar(),
         description: Faker.name.jobDescriptor(),
         city: Faker.address.city(),
         streetName: Faker.address.streetName(),
