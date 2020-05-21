@@ -14,6 +14,7 @@ class App extends Component {
     for (let i = 0; i < 15; i++) {
       const user = {
         name: Faker.name.firstName(),
+        lastName: Faker.name.lastName(),
         email: Faker.internet.email(),
         avatar: "https://picsum.photos/200/300?random=" + Math.random()*100 ,
         // avatar: Faker.internet.avatar(),
@@ -34,7 +35,7 @@ class App extends Component {
     return (
       <div style={{ padding: '10px' ,border: 'solid 1px #eee'}}>
         <img src={user.avatar} alt={user.name} width="100" height="100" />
-        <h4>Name: {user.name}</h4>
+        <h4>Name: {user.name} {user.lastName}</h4>
         <h4>Email: {user.email}</h4>
         <h4>Description: {user.description}</h4>
         <h4>Address: {user.streetName}, {user.city}, {user.country}</h4>
