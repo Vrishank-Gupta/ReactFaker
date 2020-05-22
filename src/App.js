@@ -32,7 +32,7 @@ class App extends Component {
 
   getUsers(user) {
     return (
-      <div style={{ padding: '10px' ,border: 'solid 6px #eee'}}>
+      <div class="center" style={{ padding: '10px' ,border: 'solid 6px #eee'}}>
         <img src={user.avatar} alt={user.name} width="100" height="100" />
         <h4>Name: {user.name} {user.lastName}</h4>
         <h4>Email: {user.email}</h4>
