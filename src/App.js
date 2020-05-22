@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import Faker from 'faker'
 
 class App extends Component {
-
-
     state = { 
       users: [] ,
     }
 
-
   componentDidMount() {
     for (let i = 0; i < 15; i++) {
+     
       const user = {
         name: Faker.name.firstName(),
         lastName: Faker.name.lastName(),
@@ -23,8 +21,10 @@ class App extends Component {
         country: Faker.address.country(),
         company: Faker.company.companyName(),
       }
-      this.setState(prevState => ({
-        users: [...prevState.users, user],
+
+
+      this.setState(prevUser => ({
+        users: [...prevUser.users, user],
       }))
     }
   }
@@ -32,7 +32,7 @@ class App extends Component {
 
   getUsers(user) {
     return (
-      <div style={{ padding: '10px' ,border: 'solid 1px #eee'}}>
+      <div style={{ padding: '10px' ,border: 'solid 6px #eee'}}>
         <img src={user.avatar} alt={user.name} width="100" height="100" />
         <h4>Name: {user.name} {user.lastName}</h4>
         <h4>Email: {user.email}</h4>
