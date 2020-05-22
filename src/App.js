@@ -15,7 +15,7 @@ class App extends Component {
         email: Faker.internet.email(),
         avatar: "https://picsum.photos/200/300?random=" + Math.random()*100 ,
         // avatar: Faker.internet.avatar(),
-        description: Faker.name.jobDescriptor(),
+        description: Faker.name.jobTitle(),
         city: Faker.address.city(),
         streetName: Faker.address.streetName(),
         country: Faker.address.country(),
