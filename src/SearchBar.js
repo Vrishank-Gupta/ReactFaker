@@ -22,16 +22,21 @@ class SearchBar extends React.Component {
 
 
     render() {
+
+        var a = {
+            box: {  height: '80px', width: '80%', 'text-align': 'centre', 'margin-top':'20px' },
+        }
         return (
             <div class="wrap">
 
                     <form onSubmit={this.handleSubmit} >    
                     <input class="searchTerm"
                             type="text"
-                            placeholder="Enter name"
+                            placeholder="Enter First name to search"
                             onChange={this.handleChange}
                             onSubmit={this.handleSubmit}
-                            value={this.state.value} />
+                            value={this.state.value}
+                            style={a.box} />
                 
                     </form>
                 
