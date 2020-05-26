@@ -1,4 +1,3 @@
-
 import React from 'react';
 class SearchBar extends React.Component {
     state = {
@@ -6,27 +5,37 @@ class SearchBar extends React.Component {
     }
 
     handleChange = (e) => {
+        e.preventDefault();
+
         this.setState({
             value: e.target.value,
         });
     }
 
-    handleSubmit = () => {
-        const { value } = this.state;
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.search(this.state.value);
+        this.setState({
+            value: ''
+        })
     }
+
 
     render() {
         return (
-            <ul class="token-input">
-                <li class="token-">
-                    <input
-                        name="p"
-                        value={this.state.value}
-                        className="form-control"
-                        onchange={this.handleChange}
-                    />
-                </li>
-            </ul>
+            <div class="wrap">
+
+                    <form onSubmit={this.handleSubmit} >    
+                    <input class="searchTerm"
+                            type="text"
+                            placeholder="Enter name"
+                            onChange={this.handleChange}
+                            onSubmit={this.handleSubmit}
+                            value={this.state.value} />
+                
+                    </form>
+                
+            </div>
         );
     }
 }
