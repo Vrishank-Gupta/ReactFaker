@@ -1,60 +1,48 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
-ul{
-    font: arial sans-serif;
-    color: red;
-
-    text-align: center;
-}
 body{
     text-align: center;
+    padding: 20px;
+
+    background-image: url(https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
 }
-img{
-  border-radius: 50%;
-  border: 8px solid rgb(131, 124, 124);
+
+
+.center{
+  padding: 30px;
+  color: #0f4ddb;
+  font-size:  18px;
   text-align: left;
+  background-color: #fcf5e8;
+  display: block;
+}
+.center img{
+  float: right;
+  margin-left: 10px;
+  border-radius: 50%;
+  border: 8px solid #1f7813;
+  text-align: left;
+ 
+}
+h4{
+  float: center;
+  /* position: absolute; */
 }
 
-div{
-    display: block;
-    background-color: #cbced3;
-    font-family:  Helvetica, sans-serif;
-    font-style: initial;
-    color: #045ae4;
-
-}
-
-/* .search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
-
-.searchTerm {
-  width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
-}
-
-.searchTerm:focus{
-  color: #00B4CC;
-}
-
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+ input {  
+  height: 60px;
+  width: max-content;
+  margin-top:20px;
+  border-radius:5%; 
+  border :4px solid #3b5fc2;
+  margin-bottom:20px;
+  box-sizing:border-box;
+  padding:20px;
   text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-} */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  /* -webkit-transition:width 2.5s ease-in -out;
+  transition:width 2.5s ease-in -out */
+}
 

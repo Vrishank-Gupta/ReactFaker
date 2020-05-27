@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReactDom from 'react-dom';
 import Faker from 'faker';
 import SearchBar from './SearchBar';
-import SearchResult from './SearchResult';
 
 class App extends Component {
     state = {
@@ -26,8 +25,9 @@ class App extends Component {
             const user = {
                 name: Faker.name.firstName(),
                 lastName: Faker.name.lastName(),
-                email: Faker.internet.email(),
+                email: Faker.internet.email().toLowerCase(),
                 avatar: "https://picsum.photos/200/300?random=" + Math.random() * 100,
+                // avatar:Faker.internet.avatar(),
                 description: Faker.name.jobTitle(),
                 city: Faker.address.city(),
                 streetName: Faker.address.streetName(),
@@ -41,36 +41,30 @@ class App extends Component {
             }))
         }
     }
+    
+
 
     search = (argument) => {
         console.log(argument)
 
         var j = -1;
         for(let i=0; i<this.state.users.length; i++){
-            if(this.state.users[i].name === (argument)){
+
+            var a = this.state.users[i].name +" "+ this.state.users[i].lastName;
+            if (a.toLowerCase().includes(argument.toLowerCase())) {
                 j = i;
-    
+
+                this.state.users.splice(0, 0, this.state.users.splice(i, 1)[0]);
 
                 this.setState({
-                    found : true,
-                    sr: {
-                        name: this.state.users[j].name,
-                        lastName: this.state.users[j].lastName,
-                        email: this.state.users[j].email,
-                        avatar: this.state.users[j].avatar,
-                        description: this.state.users[j].description,
-                        city: this.state.users[j].city,
-                        streetName: this.state.users[j].streetName,
-                        country: this.state.users[j].country,
-                        company: this.state.users[j].company,
-                    }
+                    found: true,
+
                 })
                 break;
             }
             
         }
 
-        console.log(j);
 
         if (j === -1) {
             alert("Not Found")
@@ -87,8 +81,8 @@ class App extends Component {
     }
     getUsers(user) {
         return (
-            <div class="center" style={{ padding: '10px', border: 'solid 6px #eee' }}>
-                <img src={user.avatar} alt={user.name} width="100" height="100" />
+            <div class="center" style={{ padding: '10px', 'border-top': 'double 5px #1f7813', 'border-left': 'double 5px #1f7813', 'border-right': 'double 5px #1f7813'  }}>
+                <img src={user.avatar} alt={user.name} width="180" height="180" />
                 <h4>Name: {user.name} {user.lastName}</h4>
                 <h4>Email: {user.email}</h4>
                 <h4>Description: {user.description}</h4>
@@ -103,18 +97,6 @@ class App extends Component {
         return (
             <span>
             <SearchBar className="search" search={this.search} />
-            <SearchResult 
-                    name={this.state.sr.name}  
-                    lastName={this.state.sr.lastName} 
-                    email={this.state.sr.email}
-                    avatar={this.state.sr.avatar}
-                    description= {this.state.sr.description}
-                    city={ this.state.sr.city}
-                    streetName= {this.state.sr.streetName}
-                    country= {this.state.sr.country}
-                    company= {this.state.sr.company} 
-
-                    />
             <div>{this.state.users.map(user => this.getUsers(user))}</div>
             </span>
         )
