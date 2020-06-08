@@ -20,7 +20,6 @@ export class SearchBar extends React.Component {
         this.setState({
             value: ''
         })
-        alert("h")
 
     }
 
