@@ -1,21 +1,12 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom';
 import Faker from 'faker';
-import SearchBar from './SearchBar';
+import {SearchBar} from './SearchBar';
 
 class App extends Component {
     state = {
         users: [],
-        sr: {
-                name: '',    
-                email:'',
-                avatar: '',
-                description: '',
-                city: '',
-                streetName: '',
-                country: '',
-                company: '',   
-            },
+    
         found :false
     }
 
@@ -27,7 +18,6 @@ class App extends Component {
                 lastName: Faker.name.lastName(),
                 email: Faker.internet.email().toLowerCase(),
                 avatar: "https://picsum.photos/200/300?random=" + Math.random() * 100,
-                // avatar:Faker.internet.avatar(),
                 description: Faker.name.jobTitle(),
                 city: Faker.address.city(),
                 streetName: Faker.address.streetName(),
@@ -95,10 +85,10 @@ class App extends Component {
 
     render() {
         return (
-            <span>
-            <SearchBar className="search" search={this.search} />
-            <div>{this.state.users.map(user => this.getUsers(user))}</div>
-            </span>
+            <div>
+                <SearchBar className="search" search={this.search} />
+                <div>{this.state.users.map(user => this.getUsers(user))}</div>
+            </div>
         )
     }
 }
@@ -107,5 +97,6 @@ ReactDom.render(
     <App/>,
     document.getElementById('root')
 )
+
 
 

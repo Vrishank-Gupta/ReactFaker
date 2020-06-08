@@ -1,15 +1,17 @@
 import React from 'react';
-class SearchBar extends React.Component {
+export class SearchBar extends React.Component {
     state = {
         value: '',
     }
 
     handleChange = (e) => {
         e.preventDefault();
-
         this.setState({
             value: e.target.value,
         });
+
+        this.props.search(e.target.value);
+
     }
 
     handleSubmit = (e) => {
@@ -18,29 +20,30 @@ class SearchBar extends React.Component {
         this.setState({
             value: ''
         })
+        alert("h")
+
     }
 
 
     render() {
 
-        return (
-            <div class="wrap">
+        return ( 
+        
+        <div class = "wrap" >
 
-                    <form onSubmit={this.handleSubmit} >    
-                    <input class="searchTerm"
-                            type="text"
-                            placeholder="Enter name to search"
-                            onChange={this.handleChange}
-                            onSubmit={this.handleSubmit}
-                            value={this.state.value}
+            <form onSubmit = { this.handleSubmit } >
 
-                            />
-                
-                    </form>
-                
+            <input class = "searchTerm"
+            type = "text"
+            placeholder = "Enter name to search"
+            onChange = { this.handleChange }
+            onSubmit = { this.handleSubmit }
+            value = { this.state.value }
+            />
+
+            </form>
+
             </div>
         );
     }
 }
-
-export default SearchBar;
